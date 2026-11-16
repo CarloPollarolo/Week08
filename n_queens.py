@@ -1,3 +1,6 @@
+import copy
+
+
 class NQueens:
     def __init__(self):
         self._num_solutions = 0
@@ -14,7 +17,7 @@ class NQueens:
             # ovvero lunghezza di N, mi chiedo se per caso non
             # l'abbia già trovata prima (mi devo salvare le soluzioni)
             if self._solution_is_good(partial_sol):
-                self._solutions.append(partial_sol)
+                self._solutions.append(copy.deepcopy(partial_sol)) # Creo una copia "profonda" della sol
                 print(partial_sol)
                 self._num_solutions+=1
             return
